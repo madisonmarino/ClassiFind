@@ -111,5 +111,8 @@ There is no authorization, login, or user profile necessary in the MVP. Please s
 ### Nice-to-haves
 - Incorporate Spotify authorization (OAuth 2.0) and login
 - Gain access to each user's top artists and recommend based on their existing top artists
-- Incorporate a separate page with chatGPT features that allows users to deep dive into the song or composer that they were recommended.
-- Image of an orchestra. When hovering over a specific section or instrument, information, history, and a playable sound-clip embed will display.
+- Incorporate a separate feature page with chatGPT features that allows users to deep dive into the song or composer that they were recommended.
+- Image of an orchestra that incorporates a hover or click state. When hovering or clicking on a specific section or instrument, information, history, and a playable sound-clip embed will display.
+- Ability for users to create a new playlist
+- Ability for users to add their new artist and song recommendation into a playlist
+- Educational feature about classical music and classical music history
