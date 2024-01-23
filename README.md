@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# ClassiFind
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Overview
 
-## Available Scripts
+ClassiFind makes classical music approachable, digestible, and accessible, by offering users the opportunity to explore the world of classical music based on their current favourite artists and existing music preferences.
 
-In the project directory, you can run:
+### Problem
 
-### `npm start`
+In today's digital age, music streaming platforms have become an integral part of our daily lives, revolutionizing the way we engage with music. However, amidst the plethora of music choices, one genre often remains in the shadows: classical music. This timeless art form frequently finds itself underrepresented in the digital music arena. ClassiFind's goal is to close this ever-increasing and glaring gap, providing a bridge to bring classical music into the forefront of the digital music experience. ClassiFind provides a unique platform tailored for those new to classical music. It provides an intuitive starting point for newcomers, providing classical music recommendations that align with their existing musical tastes. The aim is to make classical music not only accessible but also a relatable and enriching part of the modern listener's repertoire.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### User Profile
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ClassiFind is designed to cater to an ever-expanding and diverse user base, offering a tailored experience that caters to each user's unique tastes and preferences within the realm of classical music. Particularly, it will nurture and kindle the curiosity of cross-genre listeners, granting access to a genre that many have thought nearly impossible to enjoy, thereby transforming it into a new-found source of appreciation and joy.
 
-### `npm test`
+### Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+As a user, I can curate the beginning of my classical music journey by selecting my current favourite artists. From there, I will receive a personalized recommendation of a classical composer/artist and composition. Furthermore, I will have the opportunity to delve deeper into the world of classical music by exploring detailed information about the recommended composer, enriching my musical knowledge and appreciation.
 
-### `npm run build`
+### Implementation:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+React, Axios, Express. Client Libraries: react, react-router-dom, axios, sass. Server Libraries: express.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### APIs
 
-### `npm run eject`
+Spotify API.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Sitemap
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Home page: upon visiting the website users will be greeted with a home page.
+- Artist selection page: the users will be able to click on a button that will bring them to the quiz feature. This feature will ask them to select artists they currently listen to.
+- Loading screen: while the page "loads" and "generates results" users will be taken to a loading page.
+- Results page: Users will automatically be taken to a result page. This will display the composer/artist and track that they are recommended.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Mockups
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Data
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Data from my server will provide an array of artists objects that will allow users to select artists they currently listen to - this will possible be done through the Spotify API to gain access to every artist on their platform. All responses and resulting data will come from the different Spotify API endpoints.
 
-### Code Splitting
+#### Endpoints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+#### Auth
+There is no authorization, login, or user profile necessary in the MVP. Please see the "nice-to-haves" section at the bottom for possible user-based authorization. The Spotify api requires access tokens in order to make requests and times out every hour.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Roadmap
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+### Nice-to-haves
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+(Your project will be marked based on what you committed to in the above document. Under nice-to-haves, you can list any additional features you may complete if you have extra time, or after finishing.)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Incorporate Spotify authorization (OAuth 2.0) and login
+- Gain access to each user's top artists and recommend based on their existing top artists
+- Incorporate a separate page with chatGPT features that allows users to deep dive into the song or composer that they were recommended.
+- Image of an orchestra. When hovering over a specific section or instrument, information, history, and a playable sound-clip embed will display.
