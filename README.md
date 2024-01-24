@@ -27,7 +27,7 @@ Spotify API.
 - Results page: Users will automatically be taken to a result page. This will display the composer/artist and track that they are recommended.
 
 ### Mockups
-
+![Rough draft of potential mockups for ClassiFind]
 
 
 ### Data
