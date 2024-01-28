@@ -1,8 +1,12 @@
 html {
   box-sizing: border-box;
+  background-color: black;
 }
 *,
 *:before,
 *:after {
   box-sizing: inherit;
+}
+body {
+  margin: 0;
 }
