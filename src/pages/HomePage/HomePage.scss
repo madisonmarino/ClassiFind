@@ -1,9 +1,37 @@
 .homepage {
   &__content {
     background-image: url("../../assets/images/conductor.jpg");
-    width: 94rem;
-    height: 61rem;
+    width: 100%;
+    height: 57rem;
     background-position: center;
     background-size: cover;
+  }
+  &__tagline {
+    color: white;
+    font-family: Horizon;
+    font-size: 2.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 20rem;
+    margin-bottom: 3rem;
+  }
+  &__button {
+    color: white;
+    font-family: Poppins;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0.6rem 3rem;
+    border: 3px solid white;
+    width: 14rem;
+    &:hover {
+      background-color: white;
+      color: black;
+      transition: 600ms ease-in-out;
+      cursor: pointer;
+    }
   }
 }

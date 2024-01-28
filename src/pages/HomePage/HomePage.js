@@ -6,6 +6,8 @@ export default function HomePage() {
     <>
       <div className="homepage__content">
         <Header />
+        <h2 className="homepage__tagline">New journeys through old melodies</h2>
+        <div className="homepage__button">Start</div>
       </div>
     </>
   );
