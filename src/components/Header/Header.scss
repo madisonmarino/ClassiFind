@@ -1,0 +1,30 @@
+.header {
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+    padding: 2.5rem 3.5rem 2rem;
+  }
+  &__title {
+    font-family: Helvetica;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+  }
+  &__link {
+    text-decoration: none;
+    color: white;
+    margin: 0 3rem;
+    text-transform: uppercase;
+    font-family: Inter;
+    font-size: 1.5rem;
+    padding-bottom: 0.3rem;
+    &.active {
+      border-bottom: 1px solid white;
+    }
+    &:hover {
+      border-bottom: 1px solid white;
+    }
+  }
+}
