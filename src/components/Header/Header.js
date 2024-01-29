@@ -2,7 +2,6 @@ import "./Header.scss";
 import { NavLink } from "react-router-dom";
 
 export default function Header({ color }) {
-  console.log(color);
   return (
     <header>
       <div className={`header__content header__content--${color}`}>
