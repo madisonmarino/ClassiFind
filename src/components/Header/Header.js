@@ -1,11 +1,13 @@
 import "./Header.scss";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default function Header({ color }) {
   return (
     <header>
       <div className={`header__content header__content--${color}`}>
-        <h1 className={`header__title ${color}`}>ClassiFind</h1>
+        <Link to="/" className="header__title--text-decoraction">
+          <h1 className={`header__title ${color}__title`}>ClassiFind</h1>
+        </Link>
         <div className="header__links">
           <NavLink to="/" className={`header__link ${color}`}>
             Home

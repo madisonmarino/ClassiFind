@@ -12,9 +12,13 @@
     }
   }
   &__title {
-    font-family: Helvetica;
+    font-family: Horizon;
     font-size: 2.5rem;
     font-weight: 700;
+    letter-spacing: 0.1rem;
+    &--text-decoraction {
+      text-decoration: none;
+    }
   }
   &__link {
     text-decoration: none;
@@ -31,11 +35,19 @@
   &:hover {
     border-bottom: 1px solid white;
   }
+  &__title {
+    border-bottom: none;
+    color: white;
+  }
 }
 .black {
   color: black;
   &.active,
   &:hover {
     border-bottom: 1px solid black;
+  }
+  &__title {
+    border-bottom: none;
+    color: black;
   }
 }
