@@ -14,7 +14,7 @@ export default function Header() {
             Quiz
           </NavLink>
           <NavLink to="mymusic" className="header__link">
-            My Music
+            My Finds
           </NavLink>
           <NavLink to="login" className="header__link">
             Login
