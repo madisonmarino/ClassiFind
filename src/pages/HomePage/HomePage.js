@@ -5,7 +5,7 @@ export default function HomePage() {
   return (
     <>
       <div className="homepage__content">
-        <Header />
+        <Header color="white" />
         <h2 className="homepage__tagline">New journeys through old melodies</h2>
         <div className="homepage__button">Start</div>
       </div>

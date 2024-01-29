@@ -3,28 +3,39 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid white;
     padding: 0.5rem 3.5rem 0.5rem;
+    &--white {
+      border-bottom: 1px solid white;
+    }
+    &--black {
+      border-bottom: 1px solid black;
+    }
   }
   &__title {
     font-family: Helvetica;
     font-size: 2.5rem;
     font-weight: 700;
-    color: white;
   }
   &__link {
     text-decoration: none;
-    color: white;
     margin: 0 3rem;
     text-transform: uppercase;
     font-family: Inter;
     font-size: 1.3rem;
     padding-bottom: 0.3rem;
-    &.active {
-      border-bottom: 1px solid white;
-    }
-    &:hover {
-      border-bottom: 1px solid white;
-    }
+  }
+}
+.white {
+  color: white;
+  &.active,
+  &:hover {
+    border-bottom: 1px solid white;
+  }
+}
+.black {
+  color: black;
+  &.active,
+  &:hover {
+    border-bottom: 1px solid black;
   }
 }
