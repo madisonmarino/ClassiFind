@@ -9,9 +9,12 @@ export default function Quiz() {
   const [searchInput, setSearchInput] = useState(null);
   const [debouncedInput] = useDebounce(searchInput, 200);
   const [searchResponse, setSearchResponse] = useState([]);
-  //   const [artistId, setArtistId] = useState("");
 
   useEffect(() => {
+    if (debouncedInput === "") {
+      setSearchResponse([]);
+      return;
+    }
     axios
       .get(`http://localhost:8080/spotify/search/${debouncedInput}`)
       .then((response) => {
@@ -31,11 +34,11 @@ export default function Quiz() {
       />
       {/* <button className="quiz__button">Submit</button> */}
       <div className="artists">
-        {searchResponse.length > 1 &&
+        {searchInput &&
           searchResponse.map((response) => {
             return (
               <Link
-                to={`/results/${response.id}`}
+                to={`/quiz/results/${response.id}`}
                 className="artist__link"
                 key={response.id}
               >

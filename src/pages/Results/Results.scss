@@ -1,0 +1,28 @@
+.recommendation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin: 2rem 0;
+  &__details {
+    width: 30%;
+  }
+  &__image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+  &__track {
+    margin: 0;
+  }
+}
+.image {
+  width: 30%;
+  text-align: right;
+}
+.results__header {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 7rem 0 4rem;
+  font-size: 2rem;
+}
