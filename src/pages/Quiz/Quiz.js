@@ -11,15 +11,16 @@ export default function Quiz() {
   const [searchResponse, setSearchResponse] = useState([]);
 
   useEffect(() => {
-    if (debouncedInput === "") {
+    if (debouncedInput) {
+      axios
+        .get(`http://localhost:8080/spotify/search/${debouncedInput}`)
+        .then((response) => {
+          setSearchResponse(response.data);
+        });
+    } else {
       setSearchResponse([]);
       return;
     }
-    axios
-      .get(`http://localhost:8080/spotify/search/${debouncedInput}`)
-      .then((response) => {
-        setSearchResponse(response.data);
-      });
   }, [debouncedInput]);
 
   return (

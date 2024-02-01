@@ -1,3 +1,10 @@
+.recommendations__header {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 7rem 0 4rem;
+  font-size: 2rem;
+}
+
 .recommendation {
   display: flex;
   justify-content: center;
@@ -20,16 +27,8 @@
   &__track {
     margin: 0;
   }
-}
-.image {
-}
-.results__header {
-  text-align: center;
-  text-transform: uppercase;
-  margin: 7rem 0 4rem;
-  font-size: 2rem;
-}
-.icon {
-  width: 2rem;
-  height: 2rem;
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+  }
 }
