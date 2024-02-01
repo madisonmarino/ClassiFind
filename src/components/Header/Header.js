@@ -15,7 +15,7 @@ export default function Header({ color }) {
           <NavLink to="/quiz" className={`header__link ${color}`}>
             Quiz
           </NavLink>
-          <NavLink to="/myfinds" className={`header__link ${color}`}>
+          <NavLink to="/MyFinds" className={`header__link ${color}`}>
             My Finds
           </NavLink>
           <NavLink to="/login" className={`header__link ${color}`}>

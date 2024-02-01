@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import Login from "./pages/Login/Login";
 import Quiz from "./pages/Quiz/Quiz";
 import Results from "./pages/Results/Results";
+import MyFinds from "./pages/MyFinds/MyFinds";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/quiz/results/:id" element={<Results />} />
+          <Route path="/myFinds" element={<MyFinds />} />
         </Routes>
       </BrowserRouter>
     </>

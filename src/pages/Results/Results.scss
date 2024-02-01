@@ -3,9 +3,14 @@
   justify-content: center;
   align-items: center;
   gap: 3rem;
-  margin: 2rem 0;
+  background-color: #f0f0f0;
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 1rem;
+  padding: 1rem 0;
+  margin-bottom: 3rem;
   &__details {
-    width: 30%;
+    width: 50%;
   }
   &__image {
     width: 200px;
@@ -17,12 +22,14 @@
   }
 }
 .image {
-  width: 30%;
-  text-align: right;
 }
 .results__header {
   text-align: center;
   text-transform: uppercase;
   margin: 7rem 0 4rem;
   font-size: 2rem;
+}
+.icon {
+  width: 2rem;
+  height: 2rem;
 }
