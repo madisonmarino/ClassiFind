@@ -6,10 +6,6 @@
 }
 
 .recommendation {
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // gap: 3rem;
   background-color: #f0f0f0;
   width: 60%;
   margin: 0 auto;
@@ -26,14 +22,14 @@
   }
   &__track {
     margin: 0;
+    font-size: 1.5rem;
   }
-
-  .saveIcon {
-    width: 2rem;
-    height: 2rem;
-    &__space {
-      width: 100px;
-    }
+  &__artist {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 0;
+    margin-top: 0.8rem;
+    font-style: italic;
   }
   &__flex {
     display: flex;
@@ -48,8 +44,16 @@
   &__poweredBy {
     font-style: italic;
   }
+  &__chatGptResponse {
+    white-space: pre-wrap;
+    font-size: 1.2rem;
+  }
 }
 
-.new-line {
-  white-space: pre-wrap;
+.icon {
+  width: 2rem;
+  height: 2rem;
+  &__space {
+    width: 100px;
+  }
 }

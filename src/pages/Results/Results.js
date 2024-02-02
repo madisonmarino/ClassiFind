@@ -32,6 +32,7 @@ export default function Results() {
       artist_image: `${recommendation.artist_image}`,
       popularity: `${recommendation.popularity}`,
       artist_uri: `${recommendation.artist_uri}`,
+      chatGPT: `${recommendation.chatGPT}`,
     };
 
     axios
@@ -68,30 +69,27 @@ export default function Results() {
                       {recommendation.track_name}
                     </h3>
                     <h4>{recommendation.artist_name}</h4>
-                    <div>
-                      Song Popularity Score: {recommendation.popularity}
-                    </div>
                   </div>
                   <div
                     onClick={() => handleSave(recommendation, index)}
-                    className="saveIcon__space"
+                    className="icon__space"
                   >
                     {!recommendation.saved ? (
-                      <img
-                        src={likeIcon}
-                        alt="save icon"
-                        className="saveIcon"
-                      />
+                      <img src={likeIcon} alt="save icon" className="icon" />
                     ) : null}
                   </div>
                 </div>
-                <h3 className="recommendation__chatGptIntro">
-                  Why you might light this piece:
-                </h3>
-                <div className="recommendation__poweredBy">
-                  Powered by chatGPT
+                <div>
+                  <h3 className="recommendation__chatGptIntro">
+                    Why you might light this piece:
+                  </h3>
+                  <div className="recommendation__poweredBy">
+                    Powered by chatGPT
+                  </div>
+                  <p className="recommendation__chatGptResponse">
+                    {recommendation.chatGPT}
+                  </p>
                 </div>
-                <p className="new-line">{recommendation.chatGPT}</p>
               </div>
             );
           })}

@@ -54,21 +54,29 @@ export default function MyFinds() {
                     <h3 className="recommendation__track">
                       {song.track_title}
                     </h3>
-                    <h4>{song.artist_name}</h4>
-                    <div>Popularity Score: {song.popularity}</div>
+                    <h4 className="recommendation__artist">
+                      {song.artist_name}
+                    </h4>
                   </div>
                   <div
                     onClick={() => handleDelete(song, index)}
-                    className="saveIcon__space"
+                    className="icon__space"
                   >
                     {!song.saved ? (
-                      <img
-                        src={deleteIcon}
-                        alt="save icon"
-                        className="saveIcon"
-                      />
+                      <img src={deleteIcon} alt="save icon" className="icon" />
                     ) : null}
                   </div>
+                </div>
+                <div>
+                  <h3 className="recommendation__chatGptIntro">
+                    Why you might light this piece:
+                  </h3>
+                  <div className="recommendation__poweredBy">
+                    Powered by chatGPT
+                  </div>
+                  <p className="recommendation__chatGptResponse">
+                    {song.chatGPT}
+                  </p>
                 </div>
               </div>
             );
