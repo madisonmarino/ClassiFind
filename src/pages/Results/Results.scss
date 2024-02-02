@@ -27,8 +27,12 @@
   &__track {
     margin: 0;
   }
-  &__icon {
+
+  .saveIcon {
     width: 2rem;
     height: 2rem;
+    &__space {
+      width: 100px;
+    }
   }
 }

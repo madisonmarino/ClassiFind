@@ -12,6 +12,7 @@ export default function Results() {
     axios
       .get(`http://localhost:8080/spotify/getRecommendation/${id}`)
       .then((response) => {
+        console.log(response.data);
         setRecommendations(response.data);
       })
       .catch((error) => {
@@ -19,10 +20,28 @@ export default function Results() {
       });
   }, []);
 
-  // function handleLike(recommendation) {
-  //   console.log(recommendation);
-  //   // use this function to save the song in the database
-  // }
+  const handleSave = (recommendation, index) => {
+    const updatedRecommendations = [...recommendations];
+    updatedRecommendations[index].saved = true;
+    setRecommendations(updatedRecommendations);
+    const savedSong = {
+      artist_id: `${recommendation.artist_id}`,
+      artist_name: `${recommendation.artist_name}`,
+      track_title: `${recommendation.track_name}`,
+      artist_image: `${recommendation.artist_image}`,
+      popularity: `${recommendation.popularity}`,
+      artist_uri: `${recommendation.artist_uri}`,
+    };
+
+    axios
+      .post(`http://localhost:8080/users/1`, savedSong)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error adding song", error);
+      });
+  };
 
   return (
     <>
@@ -30,7 +49,7 @@ export default function Results() {
       <h2 className="recommendations__header">
         Your recommended classical music results
       </h2>
-      <div className="recommendations">
+      <section className="recommendations">
         {recommendations &&
           recommendations.map((recommendation, index) => {
             return (
@@ -49,15 +68,18 @@ export default function Results() {
                   <h4>{recommendation.artist_name}</h4>
                   <div>Popularity Score: {recommendation.popularity}</div>
                 </div>
-                <img
-                  src={likeIcon}
-                  alt="save icon"
-                  className="recommendation__icon"
-                />
+                <div
+                  onClick={() => handleSave(recommendation, index)}
+                  className="saveIcon__space"
+                >
+                  {!recommendation.saved ? (
+                    <img src={likeIcon} alt="save icon" className="saveIcon" />
+                  ) : null}
+                </div>
               </div>
             );
           })}
-      </div>
+      </section>
     </>
   );
 }

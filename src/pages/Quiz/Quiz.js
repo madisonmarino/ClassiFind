@@ -34,7 +34,7 @@ export default function Quiz() {
         onChange={(e) => setSearchInput(e.target.value)}
       />
       {/* <button className="quiz__button">Submit</button> */}
-      <div className="artists">
+      <section className="artists">
         {searchInput &&
           searchResponse.map((response) => {
             return (
@@ -54,7 +54,7 @@ export default function Quiz() {
               </Link>
             );
           })}
-      </div>
+      </section>
     </>
   );
 }
