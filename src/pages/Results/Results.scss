@@ -6,15 +6,15 @@
 }
 
 .recommendation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // gap: 3rem;
   background-color: #f0f0f0;
   width: 60%;
   margin: 0 auto;
   border-radius: 1rem;
-  padding: 1rem 0;
+  padding: 1rem 2rem;
   margin-bottom: 3rem;
   &__details {
     width: 50%;
@@ -35,4 +35,21 @@
       width: 100px;
     }
   }
+  &__flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
+  &__chatGptIntro {
+    margin-bottom: 0.1rem;
+    font-size: 1.3rem;
+  }
+  &__poweredBy {
+    font-style: italic;
+  }
+}
+
+.new-line {
+  white-space: pre-wrap;
 }

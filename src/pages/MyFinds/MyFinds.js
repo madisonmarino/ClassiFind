@@ -11,13 +11,12 @@ export default function MyFinds() {
     axios
       .get("http://localhost:8080/user/1/saved")
       .then((response) => {
-        console.log(response.data);
         setSavedSongs(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [savedSongs]);
 
   const handleDelete = (song, index) => {
     const updatedSavedSongs = [...savedSongs];
@@ -42,30 +41,34 @@ export default function MyFinds() {
         {savedSongs &&
           savedSongs.map((song, index) => {
             return (
-              <div className="recommendation" key={index}>
-                <div className="image">
-                  <img
-                    src={song.artist_image}
-                    alt="composer"
-                    className="recommendation__image"
-                  />
-                </div>
-                <div className="recommendation__details">
-                  <h3 className="recommendation__track">{song.track_title}</h3>
-                  <h4>{song.artist_name}</h4>
-                  <div>Popularity Score: {song.popularity}</div>
-                </div>
-                <div
-                  onClick={() => handleDelete(song, index)}
-                  className="saveIcon__space"
-                >
-                  {!song.saved ? (
+              <div className="recommendation">
+                <div className="recommendation__flex" key={index}>
+                  <div className="image">
                     <img
-                      src={deleteIcon}
-                      alt="save icon"
-                      className="saveIcon"
+                      src={song.artist_image}
+                      alt="composer"
+                      className="recommendation__image"
                     />
-                  ) : null}
+                  </div>
+                  <div className="recommendation__details">
+                    <h3 className="recommendation__track">
+                      {song.track_title}
+                    </h3>
+                    <h4>{song.artist_name}</h4>
+                    <div>Popularity Score: {song.popularity}</div>
+                  </div>
+                  <div
+                    onClick={() => handleDelete(song, index)}
+                    className="saveIcon__space"
+                  >
+                    {!song.saved ? (
+                      <img
+                        src={deleteIcon}
+                        alt="save icon"
+                        className="saveIcon"
+                      />
+                    ) : null}
+                  </div>
                 </div>
               </div>
             );

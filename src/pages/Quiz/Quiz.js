@@ -33,13 +33,13 @@ export default function Quiz() {
         placeholder="Search for an artist"
         onChange={(e) => setSearchInput(e.target.value)}
       />
-      {/* <button className="quiz__button">Submit</button> */}
       <section className="artists">
         {searchInput &&
           searchResponse.map((response) => {
+            console.log(response);
             return (
               <Link
-                to={`/quiz/results/${response.id}`}
+                to={`/quiz/results/${response.name}/${response.id}`}
                 className="artist__link"
                 key={response.id}
               >
