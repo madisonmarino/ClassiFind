@@ -6,7 +6,28 @@ import deleteIcon from "../../assets/icons/delete.svg";
 
 export default function MyFinds() {
   const [savedSongs, setSavedSongs] = useState([]);
-  // CHANGE THE USER DYNAMICALLY USE PARAMS WHEN LOGGED IN
+  const [IFrameApiInstance, setIFrameApiInstance] = useState();
+
+  useEffect(() => {
+    window.onSpotifyIframeApiReady = (IFrameAPI) => {
+      setIFrameApiInstance(IFrameAPI);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (IFrameApiInstance && savedSongs) {
+      savedSongs.forEach((song) => {
+        const element = document.getElementById(`iframe-${song.id}`);
+        console.log(element);
+        const options = {
+          uri: song.artist_uri,
+        };
+        const callback = (EmbedController) => {};
+        IFrameApiInstance.createController(element, options, callback);
+      });
+    }
+  }, [IFrameApiInstance, savedSongs]);
+
   useEffect(() => {
     axios
       .get("http://localhost:8080/user/1/saved")
@@ -16,17 +37,14 @@ export default function MyFinds() {
       .catch((error) => {
         console.log(error);
       });
-  }, [savedSongs]);
+  }, []);
 
-  const handleDelete = (song, index) => {
-    const updatedSavedSongs = [...savedSongs];
-    savedSongs[index].saved = true;
-    setSavedSongs(updatedSavedSongs);
-
+  const handleDelete = (song) => {
     axios
       .delete(`http://localhost:8080/users/1/song/${song.id}`)
       .then((response) => {
         console.log(response.data);
+        setSavedSongs(response.data);
       })
       .catch((error) => {
         console.error("Error adding song", error);
@@ -41,8 +59,8 @@ export default function MyFinds() {
         {savedSongs &&
           savedSongs.map((song, index) => {
             return (
-              <div className="recommendation">
-                <div className="recommendation__flex" key={index}>
+              <div className="recommendation" key={index}>
+                <div className="recommendation__flex">
                   <div className="image">
                     <img
                       src={song.artist_image}
@@ -67,6 +85,7 @@ export default function MyFinds() {
                     ) : null}
                   </div>
                 </div>
+                <div id={`iframe-${song.id}`}></div>
                 <div>
                   <h3 className="recommendation__chatGptIntro">
                     Why you might light this piece:

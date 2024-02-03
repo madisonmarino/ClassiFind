@@ -8,18 +8,29 @@ import likeIcon from "../../assets/icons/likes.svg";
 export default function Results() {
   const { artist, id } = useParams();
   const [recommendations, setRecommendations] = useState(null);
+  const [gptState, setGptState] = useState("");
 
   useEffect(() => {
     axios
       .get(`http://localhost:8080/spotify/getRecommendation/${artist}/${id}`)
       .then((response) => {
-        console.log(response.data);
         setRecommendations(response.data);
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
+
+  // useEffect(() => {
+  //   if (!recommendations) {
+  //     return;
+  //   }
+  //   axios
+  //     .post(`http://localhost:8080/spotify/get-gpt/${artist}`, recommendations)
+  //     .then((response) => {
+  //       console.log(response.data);
+  //     });
+  // }, [recommendations]);
 
   const handleSave = (recommendation, index) => {
     const updatedRecommendations = [...recommendations];
