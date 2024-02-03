@@ -8,7 +8,30 @@ import likeIcon from "../../assets/icons/likes.svg";
 export default function Results() {
   const { artist, id } = useParams();
   const [recommendations, setRecommendations] = useState(null);
+  const [IFrameApiInstance, setIFrameApiInstance] = useState();
   const [gptState, setGptState] = useState("");
+
+  useEffect(() => {
+    window.onSpotifyIframeApiReady = (IFrameAPI) => {
+      setIFrameApiInstance(IFrameAPI);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (IFrameApiInstance && recommendations) {
+      recommendations.forEach((recommendation) => {
+        const element = document.getElementById(`iframe-${recommendation.id}`);
+        console.log(element);
+        const options = {
+          width: "100%",
+          height: "160",
+          uri: recommendation.artist_uri,
+        };
+        const callback = (EmbedController) => {};
+        IFrameApiInstance.createController(element, options, callback);
+      });
+    }
+  }, [IFrameApiInstance, recommendations]);
 
   useEffect(() => {
     axios
@@ -90,6 +113,7 @@ export default function Results() {
                     ) : null}
                   </div>
                 </div>
+                <div id={`iframe-${recommendation.id}`}></div>
                 <div>
                   <h3 className="recommendation__chatGptIntro">
                     Why you might light this piece:

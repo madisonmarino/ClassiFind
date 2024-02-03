@@ -36,10 +36,12 @@
     justify-content: center;
     align-items: center;
     gap: 3rem;
+    margin-bottom: 1rem;
   }
   &__chatGptIntro {
+    margin-top: 0.3rem;
     margin-bottom: 0.1rem;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
   &__poweredBy {
     font-style: italic;

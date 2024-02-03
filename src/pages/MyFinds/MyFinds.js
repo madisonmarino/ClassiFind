@@ -20,6 +20,8 @@ export default function MyFinds() {
         const element = document.getElementById(`iframe-${song.id}`);
         console.log(element);
         const options = {
+          width: "100%",
+          height: "160",
           uri: song.artist_uri,
         };
         const callback = (EmbedController) => {};
