@@ -2,7 +2,7 @@
   &__content {
     background-image: url("../../assets/images/conductor.jpg");
     width: 100%;
-    height: 57rem;
+    height: 100vh;
     background-position: center;
     background-size: cover;
   }
@@ -33,5 +33,8 @@
       transition: 600ms ease-in-out;
       cursor: pointer;
     }
+  }
+  &__link {
+    text-decoration: none;
   }
 }
