@@ -4,12 +4,13 @@ import "./Results.scss";
 import axios from "axios";
 import Header from "../../components/Header/Header";
 import likeIcon from "../../assets/icons/likes.svg";
+import { Bars } from "react-loader-spinner";
 
 export default function Results() {
   const { artist, id } = useParams();
   const [recommendations, setRecommendations] = useState(null);
   const [IFrameApiInstance, setIFrameApiInstance] = useState();
-  const [gptState, setGptState] = useState("");
+  const [gpt, setGpt] = useState(null);
 
   useEffect(() => {
     window.onSpotifyIframeApiReady = (IFrameAPI) => {
@@ -19,9 +20,9 @@ export default function Results() {
 
   useEffect(() => {
     if (IFrameApiInstance && recommendations) {
-      recommendations.forEach((recommendation) => {
-        const element = document.getElementById(`iframe-${recommendation.id}`);
-        console.log(element);
+      console.log("recommendations", recommendations);
+      recommendations.forEach((recommendation, index) => {
+        const element = document.getElementById(`iframe-${index}`);
         const options = {
           width: "100%",
           height: "160",
@@ -44,16 +45,16 @@ export default function Results() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   if (!recommendations) {
-  //     return;
-  //   }
-  //   axios
-  //     .post(`http://localhost:8080/spotify/get-gpt/${artist}`, recommendations)
-  //     .then((response) => {
-  //       console.log(response.data);
-  //     });
-  // }, [recommendations]);
+  useEffect(() => {
+    if (!recommendations) {
+      return;
+    }
+    axios
+      .post(`http://localhost:8080/spotify/get-gpt/${artist}`, recommendations)
+      .then((response) => {
+        setGpt(response.data);
+      });
+  }, [recommendations]);
 
   const handleSave = (recommendation, index) => {
     const updatedRecommendations = [...recommendations];
@@ -113,7 +114,7 @@ export default function Results() {
                     ) : null}
                   </div>
                 </div>
-                <div id={`iframe-${recommendation.id}`}></div>
+                <div id={`iframe-${index}`}></div>
                 <div>
                   <h3 className="recommendation__chatGptIntro">
                     Why you might light this piece:
@@ -122,7 +123,25 @@ export default function Results() {
                     Powered by chatGPT
                   </div>
                   <p className="recommendation__chatGptResponse">
-                    {recommendation.chatGPT}
+                    <p className="recommendation__chatGptResponse">
+                      {gpt ? (
+                        <p className="recommendation__chatGptResponse">
+                          {gpt[recommendation.artist_uri]}
+                        </p>
+                      ) : (
+                        <p>
+                          <Bars
+                            height="80"
+                            width="80"
+                            color="#e2aba3"
+                            ariaLabel="bars-loading"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            visible={true}
+                          />
+                        </p>
+                      )}
+                    </p>
                   </p>
                 </div>
               </div>

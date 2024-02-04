@@ -18,7 +18,6 @@ export default function MyFinds() {
     if (IFrameApiInstance && savedSongs) {
       savedSongs.forEach((song) => {
         const element = document.getElementById(`iframe-${song.id}`);
-        console.log(element);
         const options = {
           width: "100%",
           height: "160",
