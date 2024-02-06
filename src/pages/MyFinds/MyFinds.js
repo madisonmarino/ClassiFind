@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import "./MyFinds.scss";
 import axios from "axios";
 import Recommendation from "../../components/Recommendation/Recommendation";
+import Footer from "../../components/Footer/Footer";
 
 export default function MyFinds() {
   const [savedSongs, setSavedSongs] = useState([]);
@@ -39,21 +40,30 @@ export default function MyFinds() {
 
   return (
     <>
-      <Header color="black" />
-      <h2 className="recommendations__header"> My saved finds</h2>
-      <section className="recommendations">
-        {savedSongs &&
-          savedSongs.map((song, index) => {
-            return (
-              <Recommendation
-                recommendation={song}
-                index={index}
-                handleDelete={handleDelete}
-                IFrameApiInstance={IFrameApiInstance}
-              />
-            );
-          })}
-      </section>
+      <div className="myFinds">
+        <Header color="black" />
+        <h2 className="recommendations__header"> Saved finds</h2>
+        <section className="recommendations">
+          {savedSongs &&
+            savedSongs.map((song, index) => {
+              return (
+                <Recommendation
+                  recommendation={song}
+                  index={index}
+                  handleDelete={handleDelete}
+                  IFrameApiInstance={IFrameApiInstance}
+                />
+              );
+            })}
+        </section>
+      </div>
+      <div
+        className={
+          savedSongs.length === 0 ? "footer__fixed" : "footer__dynamic"
+        }
+      >
+        <Footer />
+      </div>
     </>
   );
 }

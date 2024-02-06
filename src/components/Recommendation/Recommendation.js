@@ -2,6 +2,7 @@ import { Bars } from "react-loader-spinner";
 import likeIcon from "../../assets/icons/likes.svg";
 import deleteIcon from "../../assets/icons/delete.svg";
 import { useRef, useEffect } from "react";
+import "./Recommendation.scss";
 
 export default function Recommendation({
   recommendation,
@@ -77,7 +78,6 @@ export default function Recommendation({
         <h3 className="recommendation__chatGptIntro">
           Why you might like this piece:
         </h3>
-        <div className="recommendation__poweredBy">Powered by chatGPT</div>
         <p className="recommendation__chatGptResponse">
           <p className="recommendation__chatGptResponse">
             {GPTExplanation || recommendation.chatGPT ? (

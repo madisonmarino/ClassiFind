@@ -13,7 +13,7 @@
     margin: 0 auto;
     height: 3.75rem;
     width: 30rem;
-    border: 1px solid white;
+    border: 2px solid white;
     border-radius: 60px;
     font-size: 1.25rem;
     font-weight: 700;
@@ -35,6 +35,12 @@
     text-transform: uppercase;
     display: block;
     margin: 0 auto 3rem;
+  }
+  &__footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
   }
 }
 
@@ -69,6 +75,8 @@
   }
 }
 .content {
+  background-color: black;
+  color: white;
   height: 100vh;
   width: 100%;
 }

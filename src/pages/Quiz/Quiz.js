@@ -4,6 +4,7 @@ import "./Quiz.scss";
 import { useDebounce } from "use-debounce";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Footer from "../../components/Footer/Footer";
 
 export default function Quiz() {
   const [searchInput, setSearchInput] = useState(null);
