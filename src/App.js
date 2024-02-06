@@ -1,7 +1,6 @@
 import "./styles/App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
-import Login from "./pages/Login/Login";
 import Quiz from "./pages/Quiz/Quiz";
 import Results from "./pages/Results/Results";
 import MyFinds from "./pages/MyFinds/MyFinds";
