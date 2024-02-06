@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import "./HomePage.scss";
-import Footer from "../../components/Footer/Footer";
 
 export default function HomePage() {
   return (
@@ -13,7 +12,6 @@ export default function HomePage() {
           <div className="homepage__button">Start</div>
         </Link>
       </div>
-      <Footer />
     </>
   );
 }

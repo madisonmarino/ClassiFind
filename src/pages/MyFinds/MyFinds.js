@@ -57,13 +57,6 @@ export default function MyFinds() {
             })}
         </section>
       </div>
-      <div
-        className={
-          savedSongs.length === 0 ? "footer__fixed" : "footer__dynamic"
-        }
-      >
-        <Footer />
-      </div>
     </>
   );
 }

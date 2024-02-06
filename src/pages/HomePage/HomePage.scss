@@ -28,10 +28,10 @@
     border: 3px solid white;
     width: 14rem;
     &:hover {
-      background-color: #ffb6c2;
-      border: 3px solid #ffb6c2;
+      background-color: white;
+      border: 3px solid white;
       color: black;
-      transition: 500ms ease-in-out;
+      transition: 600ms ease-in-out;
       cursor: pointer;
     }
   }
