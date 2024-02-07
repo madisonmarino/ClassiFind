@@ -19,9 +19,9 @@ As a user, I can curate the beginning of my classical music journey by selecting
 ### Images of the site
 
 ![Home Page](./proposal/FinalSiteImages/FireShot%20Capture%20002%20-%20ClassiFind%20-%20localhost.png)
-![Artist Selection Page](.proposal/FinalSiteImages/FireShot%20Capture%20004%20-%20ClassiFind%20-%20localhost.png)
-![Recommendation Results Page](.proposal/FinalSiteImages/FireShot%20Capture%20005%20-%20ClassiFind%20-%20localhost.png)
-![MyFinds Page](.proposal/FinalSiteImages/FireShot%20Capture%20006%20-%20ClassiFind%20-%20localhost.png)
+![Artist Selection Page](./proposal/FinalSiteImages/FireShot%20Capture%20004%20-%20ClassiFind%20-%20localhost.png)
+![Recommendation Results Page](./proposal/FinalSiteImages/FireShot%20Capture%20005%20-%20ClassiFind%20-%20localhost.png)
+![MyFinds Page](./proposal/FinalSiteImages/FireShot%20Capture%20006%20-%20ClassiFind%20-%20localhost.png)
 
 ## Implementation:
 
