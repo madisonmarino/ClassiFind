@@ -16,111 +16,27 @@ ClassiFind is designed to cater to an ever-expanding and diverse user base, offe
 
 As a user, I can curate the beginning of my classical music journey by selecting my current favourite artists. From there, I will receive a personalized recommendation of a classical composer/artist and composition. Furthermore, I will have the opportunity to delve deeper into the world of classical music by exploring detailed information about the recommended composer, enriching my musical knowledge and appreciation. Incorporate chatGPT to allow users to deep dive into the song or composer that they were recommended. ChatGPT will be used to create a comparison between the current artists that the user has selected and the recommended artist. ChatGPT will also provide the user with education on the composer and classical music. This will allow the user to ask questions and discover more about the music they are recommended.
 
+### Images of the site
+
+![Home Page](../classifind/proposal/FinalSiteImages/FireShot%20Capture%20002%20-%20ClassiFind%20-%20localhost.png)
+![Artist Selection Page](../classifind/proposal/FinalSiteImages/FireShot%20Capture%20004%20-%20ClassiFind%20-%20localhost.png)
+![Recommendation Results Page](../classifind/proposal/FinalSiteImages/FireShot%20Capture%20005%20-%20ClassiFind%20-%20localhost.png)
+![MyFinds Page](../classifind/proposal/FinalSiteImages/FireShot%20Capture%20006%20-%20ClassiFind%20-%20localhost.png)
+
 ## Implementation:
 
 ### Tech Stack
 
-React, Axios, Express. Client Libraries: react, react-router-dom, axios, sass. Server Libraries: express.
+Client-side: react, react-router-dom, axios, sass. Server-side: express, mySQL, knex.
 
 ### APIs
 
-Spotify API.
+This project uses the [Spotify API](https://developer.spotify.com/documentation/web-api) as well as the [ChatGPT API](https://openai.com/blog/introducing-chatgpt-and-whisper-apis).
 
 ### Sitemap
 
 - Home page: upon visiting the website users will be greeted with a home page.
-- Artist selection page: the users will be able to click on a button that will bring them to the quiz feature. This feature will ask them to select artists they currently listen to.
-- Loading screen: while the page "loads" and "generates results" users will be taken to a loading page.
-- Results page: Users will automatically be taken to a result page. This will display the composer/artist and track that they are recommended.
+- Artist selection page: the users can select an artist from any genre that they currently listen to. This will redirect them to a results page where they will be able to see information about their recommended listenings. This includes information about what the piece is, a spotify embed to allow listeners to hear the piece immediately, as well as a personalized description as to why they might enjoy these specific pieces based on the artist they originally selected.
+- MyFinds page: users who create an account will be able to save and delete songs from their "MyFinds" page. By clicking the heart to add a song, or the trash can to delete a song, users will be able to tailor this page to their exact classical music desires and interests.
 
-### Mockups
 ![Rough draft of potential mockups for ClassiFind](./proposal/Mockup.jpg)
-
-### Data
-
-Data from my server will provide an array of artists objects that will allow users to select artists they currently listen to - this will possibly be done through the Spotify API to gain access to every artist on their platform. All responses and resulting data will come from the different Spotify API endpoints.
-
-### Endpoints
-
-**GET/recommendations**
-
-- get a list of recommended tracks and artists based on the parameters
-- **Parameters:** a seeded genre (classical), seeded artists (up to 5 artists the user chooses)
-
-Example response:
-
-```
-{
-  "tracks": [
-    {
-      "name": "Symphony No. 5 in C Minor, Op. 67: I. Allegro con brio",
-      "id": "3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d",
-      "artists": [{"name": "Ludwig van Beethoven"}],
-      "album": {
-        "name": "Beethoven: Symphony No. 5",
-        "images": [{"url": "https://example.com/image.jpg"}]
-      }
-    },
-    // ... more tracks ...
-  ]
-}
-```
-
-**GET/artists/:id**
-
-- get the artist data for the artist of the recommended track
-- Parameters: the artist ID
-
-Example Response:
-
-```
-{
-  "external_urls": {
-    "spotify": "https://open.spotify.com/artist/0TnOYISbd1XYRBk9myaseg"
-  },
-  "followers": {
-    "href": null,
-    "total": 10213193
-  },
-  "genres": [
-    "dance pop",
-    "miami hip hop",
-    "pop"
-  ],
-  "href": "https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg?locale=en-US%2Cen%3Bq%3D0.9",
-  "id": "0TnOYISbd1XYRBk9myaseg",
-  "images": [
-    {
-      "url": "https://i.scdn.co/image/ab6761610000e5ebee07b5820dd91d15d397e29c",
-      "height": 640,
-      "width": 640
-    },
-    {
-      "url": "https://i.scdn.co/image/ab67616100005174ee07b5820dd91d15d397e29c",
-      "height": 320,
-      "width": 320
-    },
-    {
-      "url": "https://i.scdn.co/image/ab6761610000f178ee07b5820dd91d15d397e29c",
-      "height": 160,
-      "width": 160
-    }
-  ],
-  "name": "Pitbull",
-  "popularity": 82,
-  "type": "artist",
-  "uri": "spotify:artist:0TnOYISbd1XYRBk9myaseg"
-}
-```
-
-### Auth
-
-There is no authorization, login, or user profile necessary in the MVP. Please see the "nice-to-haves" section at the bottom for possible user-based authorization. The Spotify api requires access tokens in order to make requests and times out every hour.
-
-### Roadmap
-
-### Nice-to-haves
-
-- Incorporate Spotify authorization (OAuth 2.0) and login
-- Gain access to each user's top artists and recommend based on their existing top artists
-- Image of an orchestra. When hovering over a specific section or instrument, information, history, and a playable sound-clip embed will display.
