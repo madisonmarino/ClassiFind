@@ -1,0 +1,137 @@
+html {
+  font-family: serif;
+}
+
+.container {
+  width: 100%;
+  padding: 1rem;
+  background-color: lightpink;
+  position: relative;
+  z-index: 1;
+  color: black;
+}
+
+.container::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  background: inherit;
+  transform: skewY(-1.7deg);
+  transform-origin: top left;
+}
+
+.container::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  background: inherit;
+  transform: skewX(10deg);
+  transform-origin: bottom right;
+}
+.footer {
+  &__container {
+    padding-top: 0;
+    padding-bottom: 1.5rem;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+  }
+  &__signOff {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  &__tagline {
+    font-size: 2rem;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+  &__button {
+    width: 200px;
+    padding: 1.5rem;
+    background-color: #ffc9ce;
+    box-sizing: border-box;
+    color: black;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: black;
+  }
+  &__icons {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.7rem;
+  }
+  &__links {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  &__end {
+    display: flex;
+    background-color: #f998a7;
+    color: black;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  &__name {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    width: 200px;
+  }
+  &__site {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    width: 200px;
+  }
+}
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: left;
+  font-size: 1.1rem;
+  font-family: serif;
+}
+
+.footer__end::before {
+  content: "";
+  display: block;
+  height: 40px;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  background: inherit;
+  transform: skewY(1.2deg);
+  transform-origin: top right;
+}
+.footer__end::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  transform: skewX(0deg);
+  transform-origin: bottom left;
+}

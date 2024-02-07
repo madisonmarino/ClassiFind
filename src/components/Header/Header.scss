@@ -3,19 +3,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.5rem 3.5rem 0.5rem;
-    &--white {
-      border-bottom: 1px solid white;
-    }
-    &--black {
-      border-bottom: 1px solid black;
-    }
+    padding: 0rem 3.5rem;
+    border-bottom: 1px solid white;
   }
   &__title {
     font-family: Horizon;
     font-size: 2.5rem;
     font-weight: 700;
     letter-spacing: 0.1rem;
+    color: white;
     &--text-decoraction {
       text-decoration: none;
     }
@@ -27,16 +23,6 @@
     font-family: Inter;
     font-size: 1.3rem;
     padding-bottom: 0.3rem;
-  }
-}
-.white {
-  color: white;
-  &.active,
-  &:hover {
-    border-bottom: 1px solid white;
-  }
-  &__title {
-    border-bottom: none;
     color: white;
   }
 }
@@ -44,10 +30,10 @@
   color: black;
   &.active,
   &:hover {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid white;
   }
   &__title {
     border-bottom: none;
-    color: black;
+    color: white;
   }
 }

@@ -29,6 +29,7 @@
     width: 14rem;
     &:hover {
       background-color: white;
+      border: 3px solid white;
       color: black;
       transition: 600ms ease-in-out;
       cursor: pointer;

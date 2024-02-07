@@ -1,34 +1,52 @@
-.recommendations__header {
-  text-align: center;
-  text-transform: uppercase;
-  margin: 7rem 0 4rem;
-  font-size: 2rem;
+.recommendations {
+  margin-top: 3rem;
+  background-color: black;
+  color: white;
+  &__header {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 5rem 0 4rem;
+    font-size: 2rem;
+  }
 }
 
 .recommendation {
   background-color: #f0f0f0;
-  width: 60%;
+  width: 70%;
+  height: 670px;
   margin: 0 auto;
-  border-radius: 1rem;
-  padding: 1rem 2rem;
+  padding: 2rem 2rem;
   margin-bottom: 3rem;
+  border-radius: 1rem;
+  color: black;
+  &__detailsContainer {
+    width: 66%;
+  }
   &__details {
-    width: 50%;
+    display: flex;
+    align-items: center;
+  }
+  &__track--details {
+    width: 80%;
+    margin-right: 2rem;
   }
   &__image {
-    width: 200px;
-    height: 200px;
+    max-width: 230px;
+    height: 230px;
     border-radius: 50%;
+    display: block;
+    margin: 0 auto;
   }
   &__track {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    width: 100%;
   }
   &__artist {
     font-size: 1.3rem;
     font-weight: 500;
-    margin-bottom: 0;
-    margin-top: 0.8rem;
+    margin-bottom: 0.7rem;
+    margin-top: 0.7rem;
     font-style: italic;
   }
   &__flex {
@@ -36,10 +54,9 @@
     justify-content: center;
     align-items: center;
     gap: 3rem;
-    margin-bottom: 1rem;
   }
   &__chatGptIntro {
-    margin-top: 0.3rem;
+    margin-top: 1rem;
     margin-bottom: 0.1rem;
     font-size: 1.4rem;
   }
@@ -48,6 +65,7 @@
   }
   &__chatGptResponse {
     white-space: pre-wrap;
+    margin-bottom: 0;
     font-size: 1.2rem;
   }
 }
@@ -55,7 +73,16 @@
 .icon {
   width: 2rem;
   height: 2rem;
+  display: block;
+  margin: 0;
   &__space {
     width: 100px;
   }
+}
+
+.image {
+  width: 30%;
+}
+.text {
+  text-align: left;
 }

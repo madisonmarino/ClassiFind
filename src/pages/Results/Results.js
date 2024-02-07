@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./Results.scss";
 import axios from "axios";
 import Header from "../../components/Header/Header";
-import likeIcon from "../../assets/icons/likes.svg";
-import { Bars } from "react-loader-spinner";
+import Recommendation from "../../components/Recommendation/Recommendation";
+// import "react-responsive-carousel/lib/styles/carousel.css";
 
 export default function Results() {
   const { artist, id } = useParams();
@@ -17,22 +17,6 @@ export default function Results() {
       setIFrameApiInstance(IFrameAPI);
     };
   }, []);
-
-  useEffect(() => {
-    if (IFrameApiInstance && recommendations) {
-      console.log("recommendations", recommendations);
-      recommendations.forEach((recommendation, index) => {
-        const element = document.getElementById(`iframe-${index}`);
-        const options = {
-          width: "100%",
-          height: "160",
-          uri: recommendation.artist_uri,
-        };
-        const callback = (EmbedController) => {};
-        IFrameApiInstance.createController(element, options, callback);
-      });
-    }
-  }, [IFrameApiInstance, recommendations]);
 
   useEffect(() => {
     axios
@@ -54,20 +38,20 @@ export default function Results() {
       .then((response) => {
         setGpt(response.data);
       });
-  }, [recommendations]);
+  }, [recommendations, artist]);
 
-  const handleSave = (recommendation, index) => {
+  const handleSave = (recommendation, GPTExplanation, index) => {
     const updatedRecommendations = [...recommendations];
     updatedRecommendations[index].saved = true;
     setRecommendations(updatedRecommendations);
     const savedSong = {
       artist_id: `${recommendation.artist_id}`,
       artist_name: `${recommendation.artist_name}`,
-      track_title: `${recommendation.track_name}`,
+      track_title: `${recommendation.track_title}`,
       artist_image: `${recommendation.artist_image}`,
       popularity: `${recommendation.popularity}`,
       artist_uri: `${recommendation.artist_uri}`,
-      chatGPT: `${recommendation.chatGPT}`,
+      chatGPT: `${GPTExplanation}`,
     };
 
     axios
@@ -83,68 +67,18 @@ export default function Results() {
   return (
     <>
       <Header color="black" />
-      <h2 className="recommendations__header">
-        Your recommended classical music results
-      </h2>
       <section className="recommendations">
         {recommendations &&
           recommendations.map((recommendation, index) => {
+            const GPTExplanation = gpt && gpt[recommendation.artist_uri];
             return (
-              <div className="recommendation" key={index}>
-                <div className="recommendation__flex">
-                  <div className="image">
-                    <img
-                      src={recommendation.artist_image}
-                      alt="composer"
-                      className="recommendation__image"
-                    />
-                  </div>
-                  <div className="recommendation__details">
-                    <h3 className="recommendation__track">
-                      {recommendation.track_name}
-                    </h3>
-                    <h4>{recommendation.artist_name}</h4>
-                  </div>
-                  <div
-                    onClick={() => handleSave(recommendation, index)}
-                    className="icon__space"
-                  >
-                    {!recommendation.saved ? (
-                      <img src={likeIcon} alt="save icon" className="icon" />
-                    ) : null}
-                  </div>
-                </div>
-                <div id={`iframe-${index}`}></div>
-                <div>
-                  <h3 className="recommendation__chatGptIntro">
-                    Why you might light this piece:
-                  </h3>
-                  <div className="recommendation__poweredBy">
-                    Powered by chatGPT
-                  </div>
-                  <p className="recommendation__chatGptResponse">
-                    <p className="recommendation__chatGptResponse">
-                      {gpt ? (
-                        <p className="recommendation__chatGptResponse">
-                          {gpt[recommendation.artist_uri]}
-                        </p>
-                      ) : (
-                        <p>
-                          <Bars
-                            height="80"
-                            width="80"
-                            color="#e2aba3"
-                            ariaLabel="bars-loading"
-                            wrapperStyle={{}}
-                            wrapperClass=""
-                            visible={true}
-                          />
-                        </p>
-                      )}
-                    </p>
-                  </p>
-                </div>
-              </div>
+              <Recommendation
+                recommendation={recommendation}
+                index={index}
+                GPTExplanation={GPTExplanation}
+                handleSave={handleSave}
+                IFrameApiInstance={IFrameApiInstance}
+              />
             );
           })}
       </section>
