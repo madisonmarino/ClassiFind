@@ -39,4 +39,3 @@ This project uses the [Spotify API](https://developer.spotify.com/documentation/
 - Artist selection page: the users can select an artist from any genre that they currently listen to. This will redirect them to a results page where they will be able to see information about their recommended listenings. This includes information about what the piece is, a spotify embed to allow listeners to hear the piece immediately, as well as a personalized description as to why they might enjoy these specific pieces based on the artist they originally selected.
 - MyFinds page: users who create an account will be able to save and delete songs from their "MyFinds" page. By clicking the heart to add a song, or the trash can to delete a song, users will be able to tailor this page to their exact classical music desires and interests.
 
-![Rough draft of potential mockups for ClassiFind](./proposal/Mockup.jpg)
